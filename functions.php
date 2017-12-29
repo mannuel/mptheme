@@ -7,6 +7,8 @@ require_once( MPT__THEME_DIR . '/admin/class.admin.php' );
 
 require_once( MPT__THEME_DIR . '/inc/customizer.php' );
 
+require_once( MPT__THEME_DIR . '/inc/metabox.php' );
+
 require_once( MPT__THEME_DIR . '/inc/theme-functions.php' );
 
 /**
