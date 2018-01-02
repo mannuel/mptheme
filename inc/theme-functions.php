@@ -66,6 +66,70 @@ class mptheme_functions {
 				<?php if (get_option( "typography_menu" )): ?>
 					font-family: <?php echo get_option( "typography_menu" ); ?>;
 				<?php endif; ?>
+
+				<?php if (mptheme_theme_mods( "typography_menu_weight" )): ?>
+					font-weight: <?php echo mptheme_theme_mods( "typography_menu_weight" ); ?>;
+				<?php endif; ?>
+			}
+
+			h1{
+				<?php if (mptheme_theme_mods( "typography_h1_size" )): ?>
+					font-size: <?php echo mptheme_theme_mods( "typography_h1_size" ); ?>;
+				<?php endif; ?>
+
+				<?php if (get_option( "typography_h1" )): ?>
+					font-family: <?php echo get_option( "typography_h1" ); ?>;
+				<?php endif; ?>
+			}
+
+			h2{
+				<?php if (mptheme_theme_mods( "typography_h2_size" )): ?>
+					font-size: <?php echo mptheme_theme_mods( "typography_h2_size" ); ?>;
+				<?php endif; ?>
+
+				<?php if (get_option( "typography_h2" )): ?>
+					font-family: <?php echo get_option( "typography_h2" ); ?>;
+				<?php endif; ?>
+			}
+
+			h3{
+				<?php if (mptheme_theme_mods( "typography_h3_size" )): ?>
+					font-size: <?php echo mptheme_theme_mods( "typography_h3_size" ); ?>;
+				<?php endif; ?>
+
+				<?php if (get_option( "typography_h3" )): ?>
+					font-family: <?php echo get_option( "typography_h3" ); ?>;
+				<?php endif; ?>
+			}
+
+			h4{
+				<?php if (mptheme_theme_mods( "typography_h4_size" )): ?>
+					font-size: <?php echo mptheme_theme_mods( "typography_h4_size" ); ?>;
+				<?php endif; ?>
+
+				<?php if (get_option( "typography_h4" )): ?>
+					font-family: <?php echo get_option( "typography_h4" ); ?>;
+				<?php endif; ?>
+			}
+
+			h5{
+				<?php if (mptheme_theme_mods( "typography_h5_size" )): ?>
+					font-size: <?php echo mptheme_theme_mods( "typography_h5_size" ); ?>;
+				<?php endif; ?>
+
+				<?php if (get_option( "typography_h5" )): ?>
+					font-family: <?php echo get_option( "typography_h5" ); ?>;
+				<?php endif; ?>
+			}
+
+			h6{
+				<?php if (mptheme_theme_mods( "typography_h6_size" )): ?>
+					font-size: <?php echo mptheme_theme_mods( "typography_h6_size" ); ?>;
+				<?php endif; ?>
+
+				<?php if (get_option( "typography_h6" )): ?>
+					font-family: <?php echo get_option( "typography_h6" ); ?>;
+				<?php endif; ?>
 			}
 
 		</style>

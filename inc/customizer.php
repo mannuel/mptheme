@@ -132,7 +132,7 @@ function mptheme_customize_register( $wp_customize ) {
 		'typography_body',
 		array(
 			'default'    => 'Arial, Helvetica, sans-serif',
-			'type'       => 'option',
+			'type'       => 'select',
 			'capability' => 'manage_options',
 			'transport'  => 'postMessage',
 		)
@@ -219,11 +219,15 @@ function mptheme_customize_register( $wp_customize ) {
 		)
 	);
 
+	/*
+	 * ----- H1 ----- 
+	 */
+
 	$wp_customize->add_setting(
 		'typography_h1',
 		array(
 			'default'    => 'Arial, Helvetica, sans-serif',
-			'type'       => 'option',
+			'type'       => 'select',
 			'capability' => 'manage_options',
 			'transport'  => 'postMessage',
 		)
@@ -268,11 +272,15 @@ function mptheme_customize_register( $wp_customize ) {
 		)
 	);
 
+	/*
+	 * ----- H2 ----- 
+	 */
+
 	$wp_customize->add_setting(
 		'typography_h2',
 		array(
 			'default'    => 'Arial, Helvetica, sans-serif',
-			'type'       => 'option',
+			'type'       => 'select',
 			'capability' => 'manage_options',
 			'transport'  => 'postMessage',
 		)
@@ -317,6 +325,219 @@ function mptheme_customize_register( $wp_customize ) {
 		)
 	);
 
+	/*
+	 * ----- H3 ----- 
+	 */
+
+	$wp_customize->add_setting(
+		'typography_h3',
+		array(
+			'default'    => 'Arial, Helvetica, sans-serif',
+			'type'       => 'select',
+			'capability' => 'manage_options',
+			'transport'  => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'typography_h3',
+		array(
+			'settings' => 'typography_h3',
+			'label'    => __( 'H3 font family:', 'mpclp' ),
+			'section'  => 'typography',
+			'type'     => 'select',
+			'priority' => 81,
+			'choices'  => array(
+				'Arial, Helvetica, sans-serif'                       => 'Arial, Helvetica, sans-serif',
+				'Montserrat, "Helvetica Neue", sans-serif'           => 'Montserrat, "Helvetica Neue", sans-serif',
+				'"Arial Black", Gadget, sans-serif'                  => '"Arial Black", Gadget, sans-serif',
+				'"Comic Sans MS", cursive, sans-serif'               => '"Comic Sans MS", cursive, sans-serif',
+				'Impact, Charcoal, sans-serif'                       => 'Impact, Charcoal, sans-serif',
+				'"Lucida Sans Unicode", "Lucida Grande", sans-serif' => '"Lucida Sans Unicode", "Lucida Grande", sans-serif',
+				'Tahoma, Geneva, sans-serif'                         => 'Tahoma, Geneva, sans-serif',
+				'"Trebuchet MS", Helvetica, sans-serif'              => '"Trebuchet MS", Helvetica, sans-serif',
+				'Verdana, Geneva, sans-serif'                        => 'Verdana, Geneva, sans-serif',
+			),
+		)
+	);
+
+	$wp_customize->add_setting( 'typography_h3_size',
+		array(
+			'capability' => 'edit_theme_options',
+			'transport'  => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'typography_h3_size',
+		array(
+			'label'    => 'H3 font size:',
+			'section'  => 'typography',
+			'priority' => 82,
+			'settings' => 'typography_h3_size'
+		)
+	);
+
+
+	/*
+	 * ----- H4 ----- 
+	 */
+
+	$wp_customize->add_setting(
+		'typography_h4',
+		array(
+			'default'    => 'Arial, Helvetica, sans-serif',
+			'type'       => 'select',
+			'capability' => 'manage_options',
+			'transport'  => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'typography_h4',
+		array(
+			'settings' => 'typography_h4',
+			'label'    => __( 'H4 font family:', 'mpclp' ),
+			'section'  => 'typography',
+			'type'     => 'select',
+			'priority' => 91,
+			'choices'  => array(
+				'Arial, Helvetica, sans-serif'                       => 'Arial, Helvetica, sans-serif',
+				'Montserrat, "Helvetica Neue", sans-serif'           => 'Montserrat, "Helvetica Neue", sans-serif',
+				'"Arial Black", Gadget, sans-serif'                  => '"Arial Black", Gadget, sans-serif',
+				'"Comic Sans MS", cursive, sans-serif'               => '"Comic Sans MS", cursive, sans-serif',
+				'Impact, Charcoal, sans-serif'                       => 'Impact, Charcoal, sans-serif',
+				'"Lucida Sans Unicode", "Lucida Grande", sans-serif' => '"Lucida Sans Unicode", "Lucida Grande", sans-serif',
+				'Tahoma, Geneva, sans-serif'                         => 'Tahoma, Geneva, sans-serif',
+				'"Trebuchet MS", Helvetica, sans-serif'              => '"Trebuchet MS", Helvetica, sans-serif',
+				'Verdana, Geneva, sans-serif'                        => 'Verdana, Geneva, sans-serif',
+			),
+		)
+	);
+
+	$wp_customize->add_setting( 'typography_h4_size',
+		array(
+			'capability' => 'edit_theme_options',
+			'transport'  => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'typography_h4_size',
+		array(
+			'label'    => 'H4 font size:',
+			'section'  => 'typography',
+			'priority' => 92,
+			'settings' => 'typography_h4_size'
+		)
+	);
+
+	/*
+	 * ----- H5 ----- 
+	 */
+
+	$wp_customize->add_setting(
+		'typography_h5',
+		array(
+			'default'    => 'Arial, Helvetica, sans-serif',
+			'type'       => 'select',
+			'capability' => 'manage_options',
+			'transport'  => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'typography_h5',
+		array(
+			'settings' => 'typography_h5',
+			'label'    => __( 'H5 font family:', 'mpclp' ),
+			'section'  => 'typography',
+			'type'     => 'select',
+			'priority' => 101,
+			'choices'  => array(
+				'Arial, Helvetica, sans-serif'                       => 'Arial, Helvetica, sans-serif',
+				'Montserrat, "Helvetica Neue", sans-serif'           => 'Montserrat, "Helvetica Neue", sans-serif',
+				'"Arial Black", Gadget, sans-serif'                  => '"Arial Black", Gadget, sans-serif',
+				'"Comic Sans MS", cursive, sans-serif'               => '"Comic Sans MS", cursive, sans-serif',
+				'Impact, Charcoal, sans-serif'                       => 'Impact, Charcoal, sans-serif',
+				'"Lucida Sans Unicode", "Lucida Grande", sans-serif' => '"Lucida Sans Unicode", "Lucida Grande", sans-serif',
+				'Tahoma, Geneva, sans-serif'                         => 'Tahoma, Geneva, sans-serif',
+				'"Trebuchet MS", Helvetica, sans-serif'              => '"Trebuchet MS", Helvetica, sans-serif',
+				'Verdana, Geneva, sans-serif'                        => 'Verdana, Geneva, sans-serif',
+			),
+		)
+	);
+
+	$wp_customize->add_setting( 'typography_h5_size',
+		array(
+			'capability' => 'edit_theme_options',
+			'transport'  => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'typography_h5_size',
+		array(
+			'label'    => 'H5 font size:',
+			'section'  => 'typography',
+			'priority' => 102,
+			'settings' => 'typography_h5_size'
+		)
+	);
+
+	/*
+	 * ----- H6 ----- 
+	 */
+
+	$wp_customize->add_setting(
+		'typography_h6',
+		array(
+			'default'    => 'Arial, Helvetica, sans-serif',
+			'type'       => 'select',
+			'capability' => 'manage_options',
+			'transport'  => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'typography_h6',
+		array(
+			'settings' => 'typography_h6',
+			'label'    => __( 'H6 font family:', 'mpclp' ),
+			'section'  => 'typography',
+			'type'     => 'select',
+			'priority' => 201,
+			'choices'  => array(
+				'Arial, Helvetica, sans-serif'                       => 'Arial, Helvetica, sans-serif',
+				'Montserrat, "Helvetica Neue", sans-serif'           => 'Montserrat, "Helvetica Neue", sans-serif',
+				'"Arial Black", Gadget, sans-serif'                  => '"Arial Black", Gadget, sans-serif',
+				'"Comic Sans MS", cursive, sans-serif'               => '"Comic Sans MS", cursive, sans-serif',
+				'Impact, Charcoal, sans-serif'                       => 'Impact, Charcoal, sans-serif',
+				'"Lucida Sans Unicode", "Lucida Grande", sans-serif' => '"Lucida Sans Unicode", "Lucida Grande", sans-serif',
+				'Tahoma, Geneva, sans-serif'                         => 'Tahoma, Geneva, sans-serif',
+				'"Trebuchet MS", Helvetica, sans-serif'              => '"Trebuchet MS", Helvetica, sans-serif',
+				'Verdana, Geneva, sans-serif'                        => 'Verdana, Geneva, sans-serif',
+			),
+		)
+	);
+
+	$wp_customize->add_setting( 'typography_h6_size',
+		array(
+			'capability' => 'edit_theme_options',
+			'transport'  => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'typography_h6_size',
+		array(
+			'label'    => 'H6 font size:',
+			'section'  => 'typography',
+			'priority' => 202,
+			'settings' => 'typography_h6_size'
+		)
+	);
+
 	// ---- END TYPOGRAPHY BODY ----
 
 	// ---- TYPOGRAPHY MENU ----
@@ -329,7 +550,7 @@ function mptheme_customize_register( $wp_customize ) {
 		'typography_menu',
 		array(
 			'default'    => 'Arial, Helvetica, sans-serif',
-			'type'       => 'option',
+			'type'       => 'select',
 			'capability' => 'manage_options',
 			'transport'  => 'postMessage',
 		)
@@ -458,6 +679,60 @@ function mptheme_customize_register( $wp_customize ) {
 		'settings'		=> 'separator_2',
 		'section'  		=> 'typography',
 		'priority'      => 70,
+	)));
+
+
+	/**
+	Separator
+	**/
+	$wp_customize->add_setting('separator_3', array(
+		'default'           => '',
+		'sanitize_callback' => 'esc_html',
+	));
+	$wp_customize->add_control(new Separator_Custom_control($wp_customize, 'separator_3', array(
+		'settings'		=> 'separator_3',
+		'section'  		=> 'typography',
+		'priority'      => 80,
+	)));
+
+
+	/**
+	Separator
+	**/
+	$wp_customize->add_setting('separator_4', array(
+		'default'           => '',
+		'sanitize_callback' => 'esc_html',
+	));
+	$wp_customize->add_control(new Separator_Custom_control($wp_customize, 'separator_4', array(
+		'settings'		=> 'separator_4',
+		'section'  		=> 'typography',
+		'priority'      => 90,
+	)));
+
+	/**
+	Separator
+	**/
+	$wp_customize->add_setting('separator_5', array(
+		'default'           => '',
+		'sanitize_callback' => 'esc_html',
+	));
+	$wp_customize->add_control(new Separator_Custom_control($wp_customize, 'separator_5', array(
+		'settings'		=> 'separator_5',
+		'section'  		=> 'typography',
+		'priority'      => 100,
+	)));
+
+	/**
+	Separator
+	**/
+	$wp_customize->add_setting('separator_6', array(
+		'default'           => '',
+		'sanitize_callback' => 'esc_html',
+	));
+	$wp_customize->add_control(new Separator_Custom_control($wp_customize, 'separator_6', array(
+		'settings'		=> 'separator_6',
+		'section'  		=> 'typography',
+		'priority'      => 200,
 	)));
 
 }
