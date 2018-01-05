@@ -1,3 +1,27 @@
+@import url(https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css);
+
+
+.btn{
+	border: 1px solid #ccc;
+	display: inline-block;
+	padding: .8rem 1.5rem;
+}
+
+.btn-primary{
+	background: #ccc;
+}
+
+.pull-left {
+    float: left!important;
+}
+
+.pull-right {
+    float: right!important;
+}
+
+
+
+
 a{text-decoration: none;}
 
 body{
@@ -6,29 +30,236 @@ body{
 	padding: 0
 }
 
+ol, ul{overflow: hidden; margin: 0; padding: 0}
+
 .top-bar{
-	display: none;
 	padding: .3em 0
 }
 
 .site-header{
-	padding: 2em 0
+	border-bottom: 15px solid #c89422;
+	padding: 2em 0;
+	z-index: 10000000;
+	margin-bottom: 3em;
+	position: sticky;
 }
 .site-logo, .site-logo img{
 	width: 100%
 }
 
+.home .site-header{margin-bottom: 0;}
 
 .primary-menu{
 	float: right;
 	overflow: hidden;
 }
-.primary-menu li{
+.secondary-menu{
+	overflow: hidden;
+}
+.primary-menu li, .secondary-menu li{
 	list-style: none;
 	float: left;
 }
-.primary-menu li a{
+.primary-menu li a, .secondary-menu li a{
 	outline-offset: -8px;
 	padding: 0.65625em 0.875em;
 	white-space: nowrap;
+}
+
+
+/*
+ * WooCommerce Styles
+ */
+.related.products{
+	clear: left;
+	overflow: hidden;
+}
+
+
+
+
+
+
+
+.floating-cart-btn a {
+	background: red;
+	color: #fff;
+	padding: .2em .35em;
+	font-size: 2.5em;
+	border-radius: 50%;
+	bottom: 0;
+	position: fixed;
+	right: 0;
+	margin: 0 1em 1em 0;
+}
+
+
+
+
+
+.btn-float-cart {
+  display: inline-block;
+  background: #fff;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 3rem;
+  color: #323334;
+  position: relative;
+  margin: 0 30px;
+/*  -webkit-transition: all ease 300ms;
+  transition: all ease 300ms;
+  -webkit-animation: appear 300ms;
+          animation: appear 300ms;*/
+}
+.btn-float-cart:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+.btn-float-cart .notification-label {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+.notification-label {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  font-size: 1rem;
+/*  -webkit-animation: bounceIn 700ms;
+          animation: bounceIn 700ms;*/
+}
+.notification-label.notification-label-red {
+  background: #FC3768;
+}
+.notification-label.notification-label-blue {
+  background: #4285f4;
+}
+
+
+.floating-cart-resume {
+    width: 300px;
+    background: #fff;
+    bottom: 120px;
+    border: 3px solid #E6E6E6;
+    right: 37px;
+    position: fixed;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.07);
+    display: none;
+}
+
+.floating-cart-resume-show{
+	display: inherit;
+}
+
+.floating-cart-resume:before {
+    content: "";
+    position: absolute;
+    bottom: -13px;
+    right: 20px;
+    border-width: 13px 13px 0;
+    border-style: solid;
+    border-color: #E6E6E6 transparent;
+    display: block;
+    width: 0;
+}
+
+.floating-cart-resume .title{
+	font-size: 1.7em;
+	margin: 0 0 .5em 0;
+	padding: 0;
+}
+
+.floating-cart-resume > .content > .product{
+	border-bottom: 1px solid #efefef;
+	overflow: hidden;
+	padding: 1em 0;
+}
+
+.floating-cart-resume > .content > .product:last-child{
+	margin-bottom: 2rem
+}
+
+.floating-cart-resume > .content > .product > .image img{
+	height: auto;
+	width: 100%;
+}
+
+.floating-cart-resume > .content > .product .name{
+	margin-bottom: .6rem
+}
+
+.floating-cart-resume > .subtotal{
+	display: block;
+	margin-bottom: 2rem;
+	overflow: hidden;
+	text-transform: uppercase;
+}
+
+.floating-cart-resume > .actions{
+	overflow: hidden;
+	text-align: center;
+}
+
+.floating-cart-resume > .actions .btn{width: 100%; margin-bottom: 1em}
+
+.floating-cart-resume .remove-item{font-size: .7rem}
+
+
+.removeble{
+	opacity: 0.5;
+}
+
+.removed{
+	-webkit-animation: removed-item-animation .3s cubic-bezier(.55,-0.04,.91,.94) forwards;
+	-o-animation: removed-item-animation .3s cubic-bezier(.55,-0.04,.91,.94) forwards;
+	animation: removed-item-animation .3s cubic-bezier(.55,-0.04,.91,.94) forwards;
+	display: none;
+}
+
+@keyframes removed-item-animation {
+	from {
+		opacity: 1;
+		-webkit-transform: scale(1);
+		-ms-transform: scale(1);
+		-o-transform: scale(1);
+		transform: scale(1);
+	}
+	to {
+		-webkit-transform: scale(0.5);
+		-ms-transform: scale(0.5);
+		-o-transform: scale(0.5);
+		transform: scale(0.5);
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes removed-item-animation {
+	from {
+		opacity: 1;
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+	to {
+		-webkit-transform: scale(0.5);
+		transform: scale(0.5);
+		opacity: 0;
+	}
+}
+
+@-o-keyframes removed-item-animation {
+	from {
+		opacity: 1;
+		-o-transform: scale(1);
+		transform: scale(1);
+	}
+	to {
+		-o-transform: scale(0.5);
+		transform: scale(0.5);
+		opacity: 0;
+	}
 }

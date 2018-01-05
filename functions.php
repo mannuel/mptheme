@@ -11,6 +11,8 @@ require_once( MPT__THEME_DIR . '/inc/metabox.php' );
 
 require_once( MPT__THEME_DIR . '/inc/theme-functions.php' );
 
+require_once( MPT__THEME_DIR . '/inc/woocommerce-functions.php' );
+
 /**
  * Register widget area.
  *
