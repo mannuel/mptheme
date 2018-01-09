@@ -78,6 +78,7 @@ class mptheme {
 		}
 
 		update_option( 'mptheme_google_analytics_id', sanitize_text_field($_POST['mpclp-login-image-link']) );
+		update_option( 'mptheme_facebook_pixel_id', sanitize_text_field($_POST['mptheme-facebook-pixel-id']) );
 		return true;
 	}
 
@@ -90,6 +91,7 @@ class mptheme {
 		add_settings_section( 'mptheme_options_section', 'Page options', array( 'mptheme', 'mptheme_options_fields' ), 'MP Theme Options' );
 
 		add_settings_field( 'mptheme-google-analytics-id', 'Google Analytics ID:', array( 'mptheme', 'mptheme_google_analytics_id'), 'MP Theme Options', 'mptheme_options_section', '' );
+		add_settings_field( 'mptheme-facebook-pixel-id', 'Facebook Pixel ID:', array( 'mptheme', 'mptheme_facebook_pixel_id'), 'MP Theme Options', 'mptheme_options_section', '' );
 
 	}
 
@@ -100,6 +102,11 @@ class mptheme {
 	public static function mptheme_google_analytics_id( ){
 		$mptheme_google_analytics_id = esc_attr( get_option( 'mptheme_google_analytics_id' ) );
 		echo '<input type="text" id="mpclp-login-image-link" name="mpclp-login-image-link" value="'.$mptheme_google_analytics_id.'">';
+	}
+
+	public static function mptheme_facebook_pixel_id( ){
+		$mptheme_facebook_pixel_id = esc_attr( get_option( 'mptheme_facebook_pixel_id' ) );
+		echo '<input type="text" id="mptheme-facebook-pixel-id" name="mptheme-facebook-pixel-id" value="'.$mptheme_facebook_pixel_id.'">';
 	}
 
 } // END class mptheme

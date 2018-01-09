@@ -30,6 +30,11 @@ class mptheme_functions {
 			add_action( 'wp_head', array( 'mptheme_functions', 'mptheme_google_analytics_code' ) );
 		}
 
+		// If a Facebook Pixel ID is defined, add the code to the head
+		if ( get_option( 'mptheme_facebook_pixel_id' ) ){
+			add_action( 'wp_head', array( 'mptheme_functions', 'mptheme_facebook_pixel_code' ) );
+		}
+
 	} // END function init_hooks
 
 	/**
@@ -161,6 +166,33 @@ class mptheme_functions {
 
 			gtag('config', '<?php echo get_option( 'mptheme_google_analytics_id' ); ?>');
 		</script>
+		<?php
+	}
+
+	/**
+	 * Facebook Pixel Code
+	 */
+	public static function mptheme_facebook_pixel_code() {
+		$mptheme_facebook_pixel = get_option( 'mptheme_facebook_pixel_id' );
+		?>
+		<!-- Facebook Pixel Code -->
+		<script>
+			!function(f,b,e,v,n,t,s)
+			{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+			n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+			if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+			n.queue=[];t=b.createElement(e);t.async=!0;
+			t.src=v;s=b.getElementsByTagName(e)[0];
+			s.parentNode.insertBefore(t,s)}(window,document,'script',
+			'https://connect.facebook.net/en_US/fbevents.js');
+			fbq('init', '<?php echo $mptheme_facebook_pixel; ?>'); 
+			fbq('track', 'PageView');
+		</script>
+		<noscript>
+			<img height="1" width="1" 
+			src="https://www.facebook.com/tr?id=<?php echo $mptheme_facebook_pixel; ?>&ev=PageView&noscript=1"/>
+		</noscript>
+		<!-- End Facebook Pixel Code -->
 		<?php
 	}
 
