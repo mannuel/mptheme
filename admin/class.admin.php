@@ -8,11 +8,15 @@
  */
 
 class mptheme {
-	const NONCE = 'mptheme';
 
 	private static $initiated = false;
 
 	public static function init() {
+
+		if ( isset( $_POST['_wpnonce'] ) ) {
+			self::save_theme_options();
+		}
+
 		if ( ! self::$initiated ) {
 			self::init_hooks();
 		}
@@ -25,7 +29,7 @@ class mptheme {
 		self::$initiated = true;
 		add_action( 'admin_menu', array( 'mptheme', 'mptheme_add_options_page' ) );
 		add_action( 'admin_enqueue_scripts', array( 'mptheme', 'admin_scripts' ) );
-		add_action( 'add_meta_boxes', array( 'mptheme', 'page_setup_metabox' ) );
+		add_action( 'admin_init', array( 'mptheme', 'register_settings' ) );
 	} // END function init_hooks
 
 	/**
@@ -34,6 +38,10 @@ class mptheme {
 	public static function admin_scripts() {
 		
 		wp_enqueue_style( 'wp-color-picker' );
+
+		wp_register_style( 'mptheme-admin-styles', get_template_directory_uri() . '/admin/assets/css/mptheme.admin.css', '1.0.0', true, 'all' );
+		wp_enqueue_style( 'mptheme-admin-styles' );
+
 		wp_register_script( 'mptheme-admin-script', get_template_directory_uri() . '/admin/assets/js/mptheme.admin.js', array('jquery', 'wp-color-picker'), '1.0.0', true );
 		wp_enqueue_script( 'mptheme-admin-script' );
 
@@ -53,26 +61,6 @@ class mptheme {
 
 
 	/**
-	 * Meta box for page setup
-	 */
-	public static function page_setup_metabox(){
-		add_meta_box( 'mptheme-page-setup', 'Page setup', array('mptheme', 'page_setup_metabox_content'), 'page', 'normal', 'low' );
-		add_meta_box( 'mptheme-page-seo', 'Page SEO', array('mptheme', 'page_seop_metabox_content'), 'page', 'normal', 'low' );
-	}
-
-	public static function page_setup_metabox_content(){
-		echo "test";
-	}
-
-	public static function page_seop_metabox_content(){
-		?>
-		<h3>Title</h3>
-		<input type="text">
-		<?php
-	}
-
-
-	/**
 	 * Views
 	 */
 	public static function view($name) {
@@ -80,39 +68,38 @@ class mptheme {
 		require( $file );
 	}
 
+
+	/**
+	 * Options DB Save
+	 */
+	public static function save_theme_options() {
+		if ( wp_verify_nonce( $_POST['_wpnonce'], 'mptheme_options' ) ){
+			return false;
+		}
+
+		update_option( 'mptheme_google_analytics_id', sanitize_text_field($_POST['mpclp-login-image-link']) );
+		return true;
+	}
+
+	/**
+	 * Customization fields
+	 */
+	public static function register_settings() {
+		register_setting( 'mptheme_options', 'mptheme' );
+
+		add_settings_section( 'mptheme_options_section', 'Page options', array( 'mptheme', 'mptheme_options_fields' ), 'MP Theme Options' );
+
+		add_settings_field( 'mptheme-google-analytics-id', 'Google Analytics ID:', array( 'mptheme', 'mptheme_google_analytics_id'), 'MP Theme Options', 'mptheme_options_section', '' );
+
+	}
+
 	public static function mptheme_options_fields(){
 		echo "";
 	}
 
-	public static function mptheme_enable_top_bar( ){
-		$mptheme_enable_top_bar = esc_attr( get_option( 'mptheme_enable_top_bar' ) );
-		?>
-		<select name="mptheme-enable-top-bar" id="mptheme-enable-top-bar">
-			<option value="yes" <?php selected($mptheme_enable_top_bar, "yes"); ?>>yes</option>
-			<option value="no" <?php selected($mptheme_enable_top_bar, "no"); ?>>no</option>
-		</select>
-		<?php
-	}
-
-	public static function top_bar_background( ){
-		$mptheme_top_bar_background = esc_attr( get_option( 'mptheme_top_bar_background' ) );
-		echo '<input type="text" id="mptheme-top-bar-background" class="wpColorPicker" name="mptheme-top-bar-background" value="'.$mptheme_top_bar_background.'" />';
-	}
-
-	public static function top_bar_color( ){
-		$mptheme_top_bar_color = esc_attr( get_option( 'mptheme_top_bar_color' ) );
-		echo '<input type="text" id="mptheme-top-bar-color" class="wpColorPicker" name="mptheme-top-bar-color" value="'.$mptheme_top_bar_color.'" />';
-	}
-
-	public static function image_logo_image( ){
-		$mptheme_logo_image = esc_attr( get_option( 'mptheme_logo_image' ) );
-		echo '<input type="hidden" name="mptheme-logo-image" id="mptheme-logo-image" value="'.$mptheme_logo_image.'">';
-		echo '<input type="button" value="Set logo image" id="upload-logo-image-button" class="button">';
-	}
-
-	public static function header_background( ){
-		$mptheme_header_background = esc_attr( get_option( 'mptheme_header_background' ) );
-		echo '<input type="text" id="mptheme-header-background" class="wpColorPicker" name="mptheme-header-background" value="'.$mptheme_header_background.'" />';
+	public static function mptheme_google_analytics_id( ){
+		$mptheme_google_analytics_id = esc_attr( get_option( 'mptheme_google_analytics_id' ) );
+		echo '<input type="text" id="mpclp-login-image-link" name="mpclp-login-image-link" value="'.$mptheme_google_analytics_id.'">';
 	}
 
 } // END class mptheme

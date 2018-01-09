@@ -24,6 +24,12 @@ class mptheme_functions {
 		self::$initiated = true;
 		add_action( 'wp_head', array( 'mptheme_functions', 'theme_styles' ) );
 		add_action( 'wp_enqueue_scripts', array('mptheme_functions', 'mptheme_enqueue') );
+
+		// If a Google Analytics ID is defined, add the code to the head
+		if ( get_option( 'mptheme_google_analytics_id' ) ){
+			add_action( 'wp_head', array( 'mptheme_functions', 'mptheme_google_analytics_code' ) );
+		}
+
 	} // END function init_hooks
 
 	/**
@@ -138,6 +144,23 @@ class mptheme_functions {
 			}
 
 		</style>
+		<?php
+	}
+
+	/**
+	 * Google Analytcs Code
+	 */
+	public static function mptheme_google_analytics_code() {
+		?>
+		<!-- Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112168105-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', '<?php echo get_option( 'mptheme_google_analytics_id' ); ?>');
+		</script>
 		<?php
 	}
 
