@@ -12,22 +12,6 @@ jQuery(document).ready(function() {
 		jQuery('.notification-label.notification-label-red').html(cartcount);
 	});
 
-
-
-	jQuery('.btn-float-cart').fadeOut();
-
-
-	jQuery(document).scroll(function () {
-
-		var y = jQuery(this).scrollTop();
-		if (y > 300) {
-			jQuery('.btn-float-cart').fadeIn();
-		} else {
-			jQuery('.btn-float-cart').fadeOut();
-		}
-
-	});
-
 });
 
 
