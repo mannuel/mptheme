@@ -9,6 +9,7 @@
 
 .btn-primary{
 	background: #ccc;
+	color: #fff !important
 }
 
 .pull-left {
@@ -87,7 +88,22 @@ input[name="update_cart"]{
 	overflow: hidden;
 }
 
+.woocommerce form .form-row input.input-text, .woocommerce form .form-row textarea{
+	padding: 1em
+}
 
+.woocommerce table.shop_table{
+	border-radius: 0
+}
+
+.woocommerce-cart table.cart .product-thumbnail{
+	max-width: 50px;
+	padding: 1em 1em;
+}
+
+.woocommerce-cart table.cart img{
+	width: 100% !important
+}
 
 
 
@@ -148,6 +164,10 @@ input[name="update_cart"]{
   background: #4285f4;
 }
 
+.cart-content-inner{
+	max-height: 200px;
+	overflow: auto;
+}
 
 .floating-cart-resume {
     width: 300px;
