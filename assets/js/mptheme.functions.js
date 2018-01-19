@@ -109,6 +109,8 @@ jQuery(document).ready(function() {
 
 				success:function(results) {
 					jQuery('.floating-cart-resume').append(results);
+					jQuery('.floating-cart-resume').addClass('floating-cart-resume-show');
+					jQuery('.btn-float-cart').addClass('close-floating-cart-resume');
 				}
 			});			
 		}
