@@ -89,23 +89,29 @@ jQuery(document).on( 'click', '.remove-item-btn', function(e) {
 
 jQuery(document).ready(function() {
 	jQuery(".add_to_cart_button").click(function(e) {
-		e.preventDefault();
+		if (jQuery(this).hasClass('product_type_variable')) {
+			var product_link = jQuery(this).attr( "href" );
+			window.location.href=product_link;
+		}else{
+			e.preventDefault();
 
-		jQuery(this).addClass('adding-cart');
-		var product_id = jQuery(this).attr('data-product_id');
+			jQuery(this).addClass('adding-cart');
+			var product_id = jQuery(this).attr('data-product_id');
 
-		var quantity = jQuery(this).attr('data-quantity');
+			var quantity = jQuery(this).attr('data-quantity');
 
-		jQuery('.floating-cart-resume').empty();
+			jQuery('.floating-cart-resume').empty();
 
-		jQuery.ajax ({
-			url: mptheme_ajax_object.ajax_url,  
-			type:'POST',
-			data:'action=mptheme_add_cart_single&product_id=' + product_id + '&quantity=' + quantity,
+			jQuery.ajax ({
+				url: mptheme_ajax_object.ajax_url,  
+				type:'POST',
+				data:'action=mptheme_add_cart_single&product_id=' + product_id + '&quantity=' + quantity,
 
-			success:function(results) {
-				jQuery('.floating-cart-resume').append(results);
-			}
-		});
+				success:function(results) {
+					jQuery('.floating-cart-resume').append(results);
+				}
+			});			
+		}
+
 	});
 });
