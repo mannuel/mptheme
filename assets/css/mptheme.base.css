@@ -49,18 +49,18 @@ ol, ul{overflow: hidden; margin: 0; padding: 0}
 
 .home .site-header{margin-bottom: 0;}
 
-.primary-menu{
+.main-menu{
 	float: right;
 	overflow: hidden;
 }
-.secondary-menu{
+.main-menu-right{
 	overflow: hidden;
 }
-.primary-menu li, .secondary-menu li{
+.main-menu li, .main-menu-right li{
 	list-style: none;
 	float: left;
 }
-.primary-menu li a, .secondary-menu li a{
+.main-menu li a, .main-menu-right li a{
 	outline-offset: -8px;
 	padding: 0.65625em 0.875em;
 	white-space: nowrap;
@@ -70,12 +70,22 @@ ol, ul{overflow: hidden; margin: 0; padding: 0}
 /*
  * WooCommerce Styles
  */
+input[name="apply_coupon"],
+input[name="update_cart"]{
+	font-weight: 400 !important;
+	font-size: .8em !important;
+	padding: 1em !important;
+}
+
+#coupon_code{
+	padding: .95em;
+	width: 10em;
+}
+
 .related.products{
 	clear: left;
 	overflow: hidden;
 }
-
-
 
 
 
@@ -262,4 +272,33 @@ ol, ul{overflow: hidden; margin: 0; padding: 0}
 		transform: scale(0.5);
 		opacity: 0;
 	}
+}
+
+
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	display: block;
+	height: 38px;
+	padding: 8px 10px;
+	background: #fff;
+	overflow: hidden;
+	line-height: 22px;
+	font-size: 13px;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	position: relative;
+	border: 1px solid #D5D5D5;
+	background-image: url(../img/select-arrow.jpg);
+	background-position: 96% 50%;
+	background-repeat: no-repeat;
+}
+
+.orderby {
+	height: 33px;
+	line-height: 17px;
+	background-position: 95% 50%;
+	padding: 7px 30px 7px 9px;
 }
